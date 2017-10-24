@@ -53,7 +53,7 @@ class NmaNotificationService(BaseNotificationService):
             'application': 'home-assistant',
             'event': kwargs.get(ATTR_TITLE, ATTR_TITLE_DEFAULT),
             'description': message,
-            'priority': 0,
+            'priority': kwargs.get('data').get('priority', '0'),
         }
 
         response = requests.get(
